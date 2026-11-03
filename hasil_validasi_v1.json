@@ -1,0 +1,22 @@
+{
+  "iterasi": 1,
+  "config": {
+    "model": "qwen/qwen3.8-27b",
+    "temperature": 0,
+    "max_tokens": 16,
+    "reasoning_effort": "none",
+    "labels": [
+      "Selamat",
+      "Meninggal"
+    ],
+    "system_prompt": "Kamu adalah sistem pendukung keputusan klinis untuk pasien gagal jantung.\nData pasien: usia, anemia, enzim CPK, diabetes, ejection fraction (persentase darah yang dipompa jantung setiap detak), hipertensi, trombosit, kreatinin serum (fungsi ginjal), natrium serum, jenis kelamin, dan kebiasaan merokok.\nTugas: prediksi apakah pasien akan meninggal selama masa pemantauan.\nLabel:\n- Meninggal: risiko kematian tinggi\n- Selamat: risiko kematian rendah\nJawab HANYA dengan satu kata: Selamat atau Meninggal.",
+    "few_shot": []
+  },
+  "hasil": {
+    "accuracy": 0.8,
+    "f1_macro": 0.7964,
+    "invalid": 0,
+    "n": 30
+  },
+  "tanggal": "2026-11-03T20:22:39.565189+07:00"
+}

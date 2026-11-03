@@ -1,0 +1,119 @@
+{
+  "iterasi": 3,
+  "config": {
+    "model": "qwen/qwen3.8-27b",
+    "temperature": 0,
+    "max_tokens": 16,
+    "reasoning_effort": "none",
+    "labels": [
+      "Selamat",
+      "Meninggal"
+    ],
+    "system_prompt": "Kamu adalah sistem pendukung keputusan klinis untuk pasien gagal jantung.\nData pasien: usia, anemia, enzim CPK, diabetes, ejection fraction (persentase darah yang dipompa jantung setiap detak), hipertensi, trombosit, kreatinin serum (fungsi ginjal), natrium serum, jenis kelamin, dan kebiasaan merokok.\nTugas: prediksi apakah pasien akan meninggal selama masa pemantauan.\nLabel:\n- Meninggal: risiko kematian tinggi\n- Selamat: risiko kematian rendah\nJawab HANYA dengan satu kata: Selamat atau Meninggal.\n\nPedoman dari data historis (dua indikator terkuat):\n- Ejection fraction 25% atau lebih rendah -> Meninggal\n- Kreatinin serum 1.5 mg/dL atau lebih tinggi -> Meninggal\n- Jika KEDUA indikator normal -> Selamat\nCukup bandingkan kedua angka tersebut dengan batasnya.\nJawab tepat satu kata: Selamat atau Meninggal. Tanpa penjelasan.",
+    "few_shot": [
+      {
+        "data": {
+          "age": 65.0,
+          "anaemia": 0,
+          "creatinine_phosphokinase": 113,
+          "diabetes": 1,
+          "ejection_fraction": 25,
+          "high_blood_pressure": 0,
+          "platelets": 497000.0,
+          "serum_creatinine": 1.83,
+          "serum_sodium": 135,
+          "sex": 1,
+          "smoking": 0
+        },
+        "label": "Meninggal"
+      },
+      {
+        "data": {
+          "age": 58.0,
+          "anaemia": 1,
+          "creatinine_phosphokinase": 145,
+          "diabetes": 0,
+          "ejection_fraction": 25,
+          "high_blood_pressure": 0,
+          "platelets": 219000.0,
+          "serum_creatinine": 1.2,
+          "serum_sodium": 137,
+          "sex": 1,
+          "smoking": 1
+        },
+        "label": "Meninggal"
+      },
+      {
+        "data": {
+          "age": 60.0,
+          "anaemia": 1,
+          "creatinine_phosphokinase": 582,
+          "diabetes": 0,
+          "ejection_fraction": 30,
+          "high_blood_pressure": 1,
+          "platelets": 127000.0,
+          "serum_creatinine": 0.9,
+          "serum_sodium": 145,
+          "sex": 0,
+          "smoking": 0
+        },
+        "label": "Selamat"
+      },
+      {
+        "data": {
+          "age": 65.0,
+          "anaemia": 0,
+          "creatinine_phosphokinase": 94,
+          "diabetes": 1,
+          "ejection_fraction": 50,
+          "high_blood_pressure": 1,
+          "platelets": 188000.0,
+          "serum_creatinine": 1.0,
+          "serum_sodium": 140,
+          "sex": 1,
+          "smoking": 0
+        },
+        "label": "Meninggal"
+      },
+      {
+        "data": {
+          "age": 40.0,
+          "anaemia": 1,
+          "creatinine_phosphokinase": 101,
+          "diabetes": 0,
+          "ejection_fraction": 40,
+          "high_blood_pressure": 0,
+          "platelets": 226000.0,
+          "serum_creatinine": 0.8,
+          "serum_sodium": 141,
+          "sex": 0,
+          "smoking": 0
+        },
+        "label": "Selamat"
+      },
+      {
+        "data": {
+          "age": 50.0,
+          "anaemia": 0,
+          "creatinine_phosphokinase": 369,
+          "diabetes": 1,
+          "ejection_fraction": 25,
+          "high_blood_pressure": 0,
+          "platelets": 252000.0,
+          "serum_creatinine": 1.6,
+          "serum_sodium": 136,
+          "sex": 1,
+          "smoking": 0
+        },
+        "label": "Selamat"
+      }
+    ]
+  },
+  "hasil": {
+    "accuracy": 0.7667,
+    "f1_macro": 0.7664,
+    "invalid": 0,
+    "n": 30
+  },
+  "tanggal": "2026-11-04T00:20:27.569595+07:00"
+}
